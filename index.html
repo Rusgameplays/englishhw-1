@@ -67,7 +67,7 @@
 
             <div class="field">
               <label for="phone">Phone number</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 000 0000" />
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required placeholder="+1 555 000 0000" />
             </div>
 
             <div class="field">
@@ -77,17 +77,17 @@
 
             <div class="field">
               <label for="university">University / college</label>
-              <input id="university" name="university" type="text" autocomplete="organization" placeholder="Institution name" />
+              <input id="university" name="university" type="text" autocomplete="organization" required placeholder="Institution name" />
             </div>
 
             <div class="field">
               <label for="fieldOfStudy">Field of study</label>
-              <input id="fieldOfStudy" name="fieldOfStudy" type="text" placeholder="e.g. Computer Science" />
+              <input id="fieldOfStudy" name="fieldOfStudy" type="text" required placeholder="e.g. Computer Science" />
             </div>
 
             <div class="field">
               <label for="yearOfStudy">Year of study</label>
-              <select id="yearOfStudy" name="yearOfStudy">
+              <select id="yearOfStudy" name="yearOfStudy" required>
                 <option value="">Select an option</option>
                 <option>High school</option>
                 <option>Foundation / preparatory</option>
@@ -114,7 +114,7 @@
 
             <div class="field field-full">
               <fieldset>
-                <legend>Areas of interest <span class="muted">Choose up to 3</span></legend>
+                <legend>Areas of interest <span aria-hidden="true">*</span> <span class="muted">Choose up to 3</span></legend>
                 <div class="interest-heading"><span>Pick the topics that excite you most.</span><output id="interest-count" aria-live="polite">0 / 3 selected</output></div>
                 <div class="choice-grid three-columns" id="interest-options">
                   <label class="choice-card"><input type="checkbox" name="interests" value="Artificial Intelligence" /><span>Artificial Intelligence</span></label>
@@ -139,12 +139,12 @@
 
             <div class="field field-full">
               <label for="learningExpectations">What do you hope to learn or experience?</label>
-              <textarea id="learningExpectations" name="learningExpectations" rows="4" placeholder="Share what you would like to take away from TechFest 2027."></textarea>
+              <textarea id="learningExpectations" name="learningExpectations" rows="4" required placeholder="Share what you would like to take away from TechFest 2027."></textarea>
             </div>
 
             <div class="field">
               <label for="programmingExperience">Programming experience</label>
-              <select id="programmingExperience" name="programmingExperience">
+              <select id="programmingExperience" name="programmingExperience" required>
                 <option value="">Select an option</option>
                 <option>Just getting started</option>
                 <option>Beginner</option>
@@ -156,7 +156,7 @@
 
             <div class="field">
               <label for="howDidYouHear">How did you hear about us?</label>
-              <select id="howDidYouHear" name="howDidYouHear">
+              <select id="howDidYouHear" name="howDidYouHear" required>
                 <option value="">Select an option</option>
                 <option>Social media</option>
                 <option>University / college</option>
