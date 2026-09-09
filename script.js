@@ -1,8 +1,27 @@
 /*
- * Replace this value with the Web App URL copied from your Google Apps Script deployment.
- * Example: https://script.google.com/macros/s/AKfycb.../exec
+ * Google Form endpoint. The form is linked to the TechFest 2027 responses sheet.
+ * No API key or Apps Script deployment is required.
  */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydSZfEyBhAP24hdPyWkDiFRkG-IeBYD6zcitnci8Ru1WmXIWruEpketYirrbYOtWo/exec";
+const GOOGLE_FORM_RESPONSE_URL =
+  "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfwo6a0QYGJtaiCVKjJym00V8jqt7pvoSiUwPPzcXeRUNpkAQ/formResponse";
+
+const GOOGLE_FORM_FIELDS = {
+  fullName: "entry.776313849",
+  email: "entry.1131887253",
+  phone: "entry.626052027",
+  country: "entry.311859560",
+  university: "entry.1301091224",
+  fieldOfStudy: "entry.1601138298",
+  yearOfStudy: "entry.624815439",
+  eventType: "entry.849132993",
+  interests: "entry.1502638778",
+  participationFormat: "entry.493187827",
+  learningExpectations: "entry.1626917458",
+  programmingExperience: "entry.721456402",
+  howDidYouHear: "entry.526986907",
+  termsAccepted: "entry.902911452",
+  registrationDate: "entry.2072632184",
+};
 
 const form = document.querySelector("#registration-form");
 const message = document.querySelector("#form-message");
@@ -55,13 +74,13 @@ form.addEventListener("submit", async (event) => {
   }
 
   const interests = selectedInterests().map((input) => input.value);
-  if (interests.length > 3) {
-    setMessage("Please select no more than three areas of interest.");
+  if (interests.length === 0) {
+    setMessage("Please choose at least one area of interest.");
     return;
   }
 
-  if (SCRIPT_URL === "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE") {
-    setMessage("This form still needs its Google Apps Script Web App URL. See the README to connect it.");
+  if (interests.length > 3) {
+    setMessage("Please select no more than three areas of interest.");
     return;
   }
 
@@ -88,15 +107,19 @@ form.addEventListener("submit", async (event) => {
 
   try {
     /*
-     * Apps Script web apps do not reliably support CORS preflight requests.
-     * Sending a JSON body as text/plain avoids preflight while preserving JSON data.
-     * no-cors intentionally returns an opaque response, so a completed request is treated as submitted.
+     * Google Forms accepts URL-encoded POST data. no-cors keeps this request
+     * compatible with GitHub Pages; its response is intentionally opaque.
      */
-    await fetch(SCRIPT_URL, {
+    const responseData = new URLSearchParams();
+    Object.entries(payload).forEach(([key, value]) => {
+      responseData.set(GOOGLE_FORM_FIELDS[key], value);
+    });
+
+    await fetch(GOOGLE_FORM_RESPONSE_URL, {
       method: "POST",
       mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: responseData.toString(),
     });
 
     form.reset();
@@ -106,7 +129,7 @@ form.addEventListener("submit", async (event) => {
       day: "numeric",
     }).format(new Date());
     updateInterestControls();
-    setMessage("You’re registered! We’ll be in touch with TechFest 2027 updates.", "success");
+    setMessage("Your registration request was sent. We’ll be in touch with TechFest 2027 updates.", "success");
   } catch (error) {
     console.error("Registration failed:", error);
     setMessage("We couldn’t submit your registration. Please check your connection and try again.");
