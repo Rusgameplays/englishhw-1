@@ -2,7 +2,7 @@
  * Replace this value with the Web App URL copied from your Google Apps Script deployment.
  * Example: https://script.google.com/macros/s/AKfycb.../exec
  */
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzsjMVoHvo67j46tt9Oeo0A3nKseNmRRvnlNZxzZ8oGlrjbTr1Wi4QWAGhGYq4AYcI/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydSZfEyBhAP24hdPyWkDiFRkG-IeBYD6zcitnci8Ru1WmXIWruEpketYirrbYOtWo/exec";
 
 const form = document.querySelector("#registration-form");
 const message = document.querySelector("#form-message");
