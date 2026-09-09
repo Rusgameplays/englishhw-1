@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Register for TechFest 2027 — a day for curious builders, learners, and future innovators."
+    />
+    <title>TechFest 2027 — Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <a class="brand" href="#top" aria-label="TechFest 2027 home">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span>TECHFEST<span class="brand-year">’27</span></span>
+        </a>
+
+        <div class="intro-copy">
+          <p class="eyebrow">Registration is open</p>
+          <h1 id="page-title">Build what’s<br /><em>next.</em></h1>
+          <p class="lede">
+            Join a vibrant day of ideas, hands-on learning, and people who are shaping the future of technology.
+          </p>
+        </div>
+
+        <dl class="event-details">
+          <div>
+            <dt>When</dt>
+            <dd>Coming in 2027</dd>
+          </div>
+          <div>
+            <dt>Where</dt>
+            <dd>Hybrid experience</dd>
+          </div>
+        </dl>
+
+        <p class="side-note">For students, creators<br />and technology enthusiasts.</p>
+      </section>
+
+      <section class="form-panel" id="top" aria-labelledby="form-title">
+        <div class="form-heading">
+          <p class="step-label">01 / 01</p>
+          <h2 id="form-title">Save your spot</h2>
+          <p>Tell us a little about yourself. Fields marked <span aria-hidden="true">*</span> are required.</p>
+        </div>
+
+        <form id="registration-form" novalidate>
+          <div class="form-grid">
+            <div class="field field-full">
+              <label for="fullName">Full name <span aria-hidden="true">*</span></label>
+              <input id="fullName" name="fullName" type="text" autocomplete="name" required placeholder="Your full name" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email address <span aria-hidden="true">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 555 000 0000" />
+            </div>
+
+            <div class="field">
+              <label for="country">Country <span aria-hidden="true">*</span></label>
+              <input id="country" name="country" type="text" autocomplete="country-name" required placeholder="Your country" />
+            </div>
+
+            <div class="field">
+              <label for="university">University / college</label>
+              <input id="university" name="university" type="text" autocomplete="organization" placeholder="Institution name" />
+            </div>
+
+            <div class="field">
+              <label for="fieldOfStudy">Field of study</label>
+              <input id="fieldOfStudy" name="fieldOfStudy" type="text" placeholder="e.g. Computer Science" />
+            </div>
+
+            <div class="field">
+              <label for="yearOfStudy">Year of study</label>
+              <select id="yearOfStudy" name="yearOfStudy">
+                <option value="">Select an option</option>
+                <option>High school</option>
+                <option>Foundation / preparatory</option>
+                <option>1st year</option>
+                <option>2nd year</option>
+                <option>3rd year</option>
+                <option>4th year</option>
+                <option>Graduate / postgraduate</option>
+                <option>Not currently studying</option>
+              </select>
+            </div>
+
+            <div class="field field-full">
+              <fieldset>
+                <legend>Event type <span aria-hidden="true">*</span></legend>
+                <div class="choice-grid two-columns">
+                  <label class="choice-card"><input type="radio" name="eventType" value="Workshop" required /><span>Workshop</span></label>
+                  <label class="choice-card"><input type="radio" name="eventType" value="Hackathon" /><span>Hackathon</span></label>
+                  <label class="choice-card"><input type="radio" name="eventType" value="Conference" /><span>Conference</span></label>
+                  <label class="choice-card"><input type="radio" name="eventType" value="All-access pass" /><span>All-access pass</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="field field-full">
+              <fieldset>
+                <legend>Areas of interest <span class="muted">Choose up to 3</span></legend>
+                <div class="interest-heading"><span>Pick the topics that excite you most.</span><output id="interest-count" aria-live="polite">0 / 3 selected</output></div>
+                <div class="choice-grid three-columns" id="interest-options">
+                  <label class="choice-card"><input type="checkbox" name="interests" value="Artificial Intelligence" /><span>Artificial Intelligence</span></label>
+                  <label class="choice-card"><input type="checkbox" name="interests" value="Web Development" /><span>Web Development</span></label>
+                  <label class="choice-card"><input type="checkbox" name="interests" value="Cybersecurity" /><span>Cybersecurity</span></label>
+                  <label class="choice-card"><input type="checkbox" name="interests" value="Data Science" /><span>Data Science</span></label>
+                  <label class="choice-card"><input type="checkbox" name="interests" value="Design & UX" /><span>Design &amp; UX</span></label>
+                  <label class="choice-card"><input type="checkbox" name="interests" value="Entrepreneurship" /><span>Entrepreneurship</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="field field-full">
+              <fieldset>
+                <legend>Participation format <span aria-hidden="true">*</span></legend>
+                <div class="choice-grid two-columns">
+                  <label class="choice-card"><input type="radio" name="participationFormat" value="In person" required /><span>In person</span></label>
+                  <label class="choice-card"><input type="radio" name="participationFormat" value="Online" /><span>Online</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="field field-full">
+              <label for="learningExpectations">What do you hope to learn or experience?</label>
+              <textarea id="learningExpectations" name="learningExpectations" rows="4" placeholder="Share what you would like to take away from TechFest 2027."></textarea>
+            </div>
+
+            <div class="field">
+              <label for="programmingExperience">Programming experience</label>
+              <select id="programmingExperience" name="programmingExperience">
+                <option value="">Select an option</option>
+                <option>Just getting started</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="howDidYouHear">How did you hear about us?</label>
+              <select id="howDidYouHear" name="howDidYouHear">
+                <option value="">Select an option</option>
+                <option>Social media</option>
+                <option>University / college</option>
+                <option>Friend or colleague</option>
+                <option>Search engine</option>
+                <option>Previous event</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field field-full registration-date">
+              <label for="registrationDate">Registration date</label>
+              <input id="registrationDate" name="registrationDate" type="text" readonly aria-describedby="date-help" />
+              <small id="date-help">Set automatically when you open this form.</small>
+            </div>
+          </div>
+
+          <label class="terms">
+            <input id="termsAccepted" name="termsAccepted" type="checkbox" required />
+            <span>I agree to the collection and processing of my registration details for TechFest 2027. <b aria-hidden="true">*</b></span>
+          </label>
+
+          <div id="form-message" class="form-message" role="status" aria-live="polite"></div>
+
+          <button class="submit-button" type="submit">
+            <span>Complete registration</span><span aria-hidden="true">→</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
